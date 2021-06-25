@@ -1,6 +1,6 @@
 package by.milavitsky.homework.task3_1.service;
 import static by.milavitsky.homework.task3_1.view.Message.*;
-import static by.milavitsky.homework.task1.validation.Validator.*;
+import static by.milavitsky.homework.task3_1.validation.Validator.*;
 import by.milavitsky.homework.task3_1.entity.ArrayWrapper;
 
 import static by.milavitsky.homework.task3_1.service.SortArrayWrapperService.sortBubbleUp;
