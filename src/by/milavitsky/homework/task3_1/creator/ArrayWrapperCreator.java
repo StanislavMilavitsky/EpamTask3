@@ -10,13 +10,13 @@ public class ArrayWrapperCreator {
     public static ArrayWrapper creatByConsole() {
         ArrayWrapper arrayWrapper = new ArrayWrapper();
         Scanner scanner = new Scanner(System.in);
-        Message.showMessage("Enter the length of array");
+        System.out.println("Enter the length of array");
         int length;
         while((length = scanner.nextInt()) < 0){
-            Message.showMessage("Enter positive length");
+            System.out.println("Enter positive length");
         }
         int[] array = new int[length];
-        Message.showMessage("Enter values");//
+        System.out.println("Enter values");
         for (int i = 0; i < length; i++) {
                 array[i] = scanner.nextInt();;
 
@@ -31,7 +31,7 @@ public class ArrayWrapperCreator {
         int[] array = new int[length];
         double random = Math.random();
         double sign = 0;
-        if (sign >= 0.5){
+        if (random >= 0.5){
             sign = -1;
         } else {
             sign = 1;

@@ -32,7 +32,7 @@ public class ArrayWrapper implements Serializable {
 
 
     public int[] getArray() {
-        return Arrays.copyOf(array, arrayLength);//todo
+        return Arrays.copyOf(array, arrayLength);
     }
 
     public void setArray(int... x) {

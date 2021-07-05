@@ -3,7 +3,7 @@ package by.milavitsky.homework.task3_1.service;
 import by.milavitsky.homework.task3_1.entity.ArrayWrapper;
 
 public class SortArrayWrapperService {
-    public static void sortSelection(ArrayWrapper arrayWrapper) {
+    public static ArrayWrapper sortSelection(ArrayWrapper arrayWrapper) {
         int[] array = arrayWrapper.getArray();
         for (int i = 0; i < array.length; i++) {
             int minInd = i;
@@ -15,10 +15,11 @@ public class SortArrayWrapperService {
             swap(array, i, minInd);
         }
         arrayWrapper.setArray(array);
+         return arrayWrapper;
     }
 
 
-    public static void sortBubbleDown(ArrayWrapper arrayWrapper) {
+    public static ArrayWrapper sortBubbleDown(ArrayWrapper arrayWrapper) {
         int[] array = arrayWrapper.getArray();
         boolean needIteration = true;
         while (needIteration) {
@@ -31,6 +32,7 @@ public class SortArrayWrapperService {
             }
         }
         arrayWrapper.setArray(array);
+        return arrayWrapper;
     }
 
     public static int[] sortBubbleUp(int[] array) {
@@ -60,7 +62,7 @@ public class SortArrayWrapperService {
         return array;
     }
 
-    public static void sortBubbleUp(ArrayWrapper arrayWrapper) {
+    public static ArrayWrapper sortBubbleUp(ArrayWrapper arrayWrapper) {
         int[] array = arrayWrapper.getArray();
         boolean needIteration = true;
         while (needIteration) {
@@ -73,10 +75,11 @@ public class SortArrayWrapperService {
             }
         }
         arrayWrapper.setArray(array);
+        return arrayWrapper;
     }
 
 
-    public static void sortShuttle(ArrayWrapper arrayWrapper) {
+    public static ArrayWrapper sortShuttle(ArrayWrapper arrayWrapper) {
         int[] array = arrayWrapper.getArray();
         for (int i = 1; i < array.length; i++) {
             if (array[i] < array[i - 1]) {
@@ -91,6 +94,7 @@ public class SortArrayWrapperService {
             }
         }
         arrayWrapper.setArray(array);
+        return arrayWrapper;
     }
 
     private static void swap(int[] array, int index1, int index2) {

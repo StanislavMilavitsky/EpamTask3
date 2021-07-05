@@ -1,36 +1,28 @@
 package by.milavitsky.homework.task3_1.service;
-import static by.milavitsky.homework.task3_1.view.Message.*;
-import static by.milavitsky.homework.task3_1.validation.Validator.*;
-import by.milavitsky.homework.task3_1.entity.ArrayWrapper;
 
-import static by.milavitsky.homework.task3_1.service.SortArrayWrapperService.sortBubbleUp;
+import by.milavitsky.homework.task3_1.entity.ArrayWrapper;
 
 public class SearchArrayWrapperService {
 
     public static int binarySearch(ArrayWrapper arrayWrapper, int value) {
-        if(!isInteger(value)){
-            showMessage("Not integer in binary search");
-        }
-        int[] array = arrayWrapper.getArray();
-        array = sortBubbleUp(array);
-        arrayWrapper.setArray(array);
+        int [] array = arrayWrapper.getArray();
         int firstElement = 0;
-        int lastElement = array.length - 1;
-        int element = methodOfBinSearch(array, firstElement, lastElement, value);
-        return element;
-
+        int lastElement = 4;
+        int elementToSearch = value;
+        int index = methodBinartSearch(array,elementToSearch,firstElement, lastElement);
+        return index;
     }
 
-    private static int methodOfBinSearch(int[] array, int firstElement, int lastElement, int elementToSearch) {
-        if (lastElement >= firstElement) {
-            int middleIndex = (lastElement + firstElement) / 2;
-            if (array[middleIndex] == elementToSearch) {
-                return middleIndex;
+    private static int methodBinartSearch(int[] array, int elementToSearch, int firstElement, int lastElement) {
+        if (firstElement <= lastElement) {
+            int middle = (firstElement + lastElement) / 2;
+
+            if (array[middle] > elementToSearch) {
+                return methodBinartSearch(array, elementToSearch, firstElement, middle - 1);
+            } else if (array[middle] < elementToSearch) {
+                return methodBinartSearch(array, elementToSearch, middle + 1, lastElement);
             }
-            if (array[middleIndex] > elementToSearch) {
-                return methodOfBinSearch(array, firstElement, middleIndex - 1, elementToSearch);
-            }
-            return methodOfBinSearch(array, firstElement, middleIndex + 1, elementToSearch);
+            return middle;
         }
         return -1;
     }
@@ -75,7 +67,7 @@ public class SearchArrayWrapperService {
         return fibanacci;
     }
 
-    public static int[] primeElement(ArrayWrapper arrayWrapper) {
+    public static int[] primeNumber(ArrayWrapper arrayWrapper) {
         int[] array = arrayWrapper.getArray();
         ArrayWrapper result = new ArrayWrapper();
         for (int element : array) {
